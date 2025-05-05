@@ -23,9 +23,9 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center md:text-left"
           >
-            <h3 className="mb-6 text-primary-800">
+            <h2 className="mb-6 text-primary-800">
               GREATHIRE BUSINESS SOLUTIONS
-            </h3>
+            </h2>
             <p className="mb-8 text-lg text-gray-600">
               Connecting organizations with high-impact talent across industries.
             </p>
