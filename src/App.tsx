@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main> Hi
+      <main>
         <Hero />
         <About />
         <Services />
