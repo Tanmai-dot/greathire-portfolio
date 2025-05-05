@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
             className="flex justify-center"
           >
             <img
-              src="https://images.pexels.com/photos/7654125/pexels-photo-7654125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src="https://img.freepik.com/free-vector/software-developers-coding-composition-with-creative-decisions-algorithmic-complexity-documentation-by-programming-languages-isometric_1284-33290.jpg?t=st=1746423493~exp=1746427093~hmac=7ce9ed78b841f636885d674716b739e8a464acaa8eddf6fd17b47533997adb97&w=826"
               alt="Business professionals in a meeting"
               className="object-cover w-full h-auto max-w-lg rounded-lg shadow-xl"
             />
