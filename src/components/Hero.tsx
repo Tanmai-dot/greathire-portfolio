@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             className="text-center md:text-left"
           >
             <h1 className="mb-6 text-primary-800">
-              Strategic Staffing That Powers Global Business Success
+              GREATHIRE BUSINESS SOLUTIONS
             </h1>
             <p className="mb-8 text-lg text-gray-600">
               Connecting organizations with high-impact talent across industries.
