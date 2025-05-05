@@ -16,12 +16,12 @@ const Reason: React.FC<ReasonProps> = ({ icon: Icon, title, description, index }
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="flex"
+      className="flex items-center gap-3 p-4 min-w-[20rem] transition-all hover:shadow-lg"
     >
-      <div className="flex-shrink-0 p-2 mr-4 text-white bg-primary-600 rounded-lg">
-        <Icon size={24} />
+      <div className="flex-shrink-0 p-2 text-white bg-primary-600 rounded-lg transition-all hover:bg-primary-500">
+        <Icon size={26} />
       </div>
-      <div>
+      <div className="max-w-[20rem]">
         <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
         <p className="text-primary-100">{description}</p>
       </div>
