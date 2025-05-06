@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
               GREAT<span className='text-blue-700'>HIRE</span> BY BABDE PVT.LTD
             </h1>
             <p className="mb-8 text-lg text-white">
-              Connecting organizations with highly talented individuals across industries.
+              Connecting Organizations with highly talented individuals across industries.
             </p>
             <div className="flex flex-wrap justify-center gap-4 md:justify-center">
               <a href="#contact" className="btn btn-primary">
