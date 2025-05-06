@@ -1,24 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import GreatHireLogo from '../assets/GreatHireLogoHd.png'
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isActive, setIsActive] = useState('#home');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      // Update scrolled state
+      setIsScrolled(window.scrollY > 20);
+  
+      // Update active section
+      const sections = navLinks.map(link => document.querySelector(link.href));
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+  
+      sections.forEach((section, index) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
+          const bottom = top + section.offsetHeight;
+  
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            setIsActive(navLinks[index].href);
+          }
+        }
+      });
     };
-
+  
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -37,8 +51,10 @@ const Navbar: React.FC = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="flex items-center space-x-2">
-          <Users size={28} className="text-primary-600" />
-          <span className="text-xl font-bold text-primary-800">GreatHire</span>
+          <div className='relative'>
+          <img src={GreatHireLogo} alt="" className='w-auto h-12 z-20 relative' />
+          <div className="absolute inset-0 blur-md opacity-[90%] bg-secondary-100 rounded-[100%] z-0" />
+          </div>
         </a>
 
         {/* Desktop navigation */}
@@ -47,9 +63,13 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-primary-600' : 'text-gray-800 hover:text-primary-600'
-              }`}
+              onClick={() => setIsActive(link.href)}
+              className={`relative text-sm font-medium transition-all duration-300
+                ${isScrolled ? 'text-black' : 'text-white'}
+                after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
+                after:h-[2px] after:bg-current after:transition-all after:duration-300
+                after:origin-center
+                ${isActive === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}
             >
               {link.name}
             </a>

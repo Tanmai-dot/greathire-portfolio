@@ -1,4 +1,5 @@
 import React from 'react';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,6 +13,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      <Preloader>
       <Navbar />
       <main>
         <Hero />
@@ -23,6 +25,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      </Preloader>
     </div>
   );
 }
