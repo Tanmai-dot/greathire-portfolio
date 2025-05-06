@@ -87,15 +87,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex">
                 <MapPin size={20} className="flex-shrink-0 mr-3 text-primary-400" />
-                <span>123 Business Avenue, Suite 100<br />San Francisco, CA 94107</span>
+                <span>5th floor,Doc,Vasantha Bhavana Rd,Whitefields,Kondapur,Hyderabad,Telangana 500006 </span>
               </li>
               <li className="flex">
                 <Phone size={20} className="flex-shrink-0 mr-3 text-primary-400" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91-6305059959</span>
               </li>
               <li className="flex">
                 <Mail size={20} className="flex-shrink-0 mr-3 text-primary-400" />
-                <span>info@greathire.com</span>
+                <span>hr@babde.tech</span>
               </li>
             </ul>
           </div>
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
       <div className="py-4 text-sm text-center text-gray-500 border-t border-gray-800">
         <div className="container">
           <p>
-            © {new Date().getFullYear()} GreatHire Business Solutions. All rights reserved.
+            © {new Date().getFullYear()} GREATHIRE BY BABDE PVT.LTD. All rights reserved.
           </p>
           <p className="flex items-center justify-center mt-2">
             <span>Made with</span>

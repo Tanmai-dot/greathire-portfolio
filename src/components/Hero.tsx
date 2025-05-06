@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             className="text-center md:text-center"
           >
             <h1 className="mb-6 text-black content-center justify-center align-middle font-[oswald]">
-              GREAT<span className='text-blue-700'>HIRE</span> BUSINESS SOLUTIONS
+              GREAT<span className='text-blue-700'>HIRE</span> BY BABDE PVT.LTD
             </h1>
             <p className="mb-8 text-lg text-white">
               Connecting organizations with highly talented individuals across industries.

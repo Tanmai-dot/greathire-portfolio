@@ -38,15 +38,23 @@ const About: React.FC = () => {
           animate={inView ? 'visible' : 'hidden'}
           className="grid items-center gap-12 md:grid-cols-2"
         >
-          <motion.div variants={itemVariants}>
+          {/* Animation variants for the image to fade and slide in */}
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+            }}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
             <img
-              src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="https://lh3.googleusercontent.com/p/AF1QipNODwbnr56puwSNPCSqxyTsFtol3shHDaLs2zHM=s1360-w1360-h1020-rw" 
               alt="Business professionals collaborating"
               className="object-cover w-full h-auto rounded-lg shadow-lg"
             />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-6">
+          <motion.div variants={itemVariants} className="space-y-6"> {/* Corrected placement of closing tag */}
             <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 rounded-full">
               <Users size={24} className="text-primary-600" />
             </div>
