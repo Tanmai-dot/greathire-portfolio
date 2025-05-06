@@ -4,15 +4,11 @@ import GreatHireLogo from '../assets/GreatHireLogoHd.png'
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isActive, setIsActive] = useState('#home');
+  const [isActive, setIsActive] = useState('#home'); // Assuming default active is #home
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update scrolled state
-      setIsScrolled(window.scrollY > 20);
-  
-      // Update active section
+      // This logic is for updating the active section based on scroll
       const sections = navLinks.map(link => document.querySelector(link.href));
       const scrollPosition = window.scrollY + window.innerHeight / 2;
   
@@ -45,9 +41,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-2" // Set a default background and padding
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="flex items-center space-x-2">
@@ -65,7 +59,7 @@ const Navbar: React.FC = () => {
               href={link.href}
               onClick={() => setIsActive(link.href)}
               className={`relative text-sm font-medium transition-all duration-300
-                ${isScrolled ? 'text-black' : 'text-white'}
+                text-black {/* Always black now */}
                 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
                 after:h-[2px] after:bg-current after:transition-all after:duration-300
                 after:origin-center
