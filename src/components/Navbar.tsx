@@ -1,34 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import GreatHireLogo from '../assets/GreatHireLogoHd.png'
+import GreatHireLogo from '../assets/GreatHireLogoHd.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isActive, setIsActive] = useState('#home'); // Assuming default active is #home
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // This logic is for updating the active section based on scroll
-      const sections = navLinks.map(link => document.querySelector(link.href));
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-  
-      sections.forEach((section, index) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const top = rect.top + window.scrollY;
-          const bottom = top + section.offsetHeight;
-  
-          if (scrollPosition >= top && scrollPosition < bottom) {
-            setIsActive(navLinks[index].href);
-          }
-        }
-      });
-    };
-  
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isActive, setIsActive] = useState('#home');
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -39,53 +16,80 @@ const Navbar: React.FC = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.querySelector('#about');
+      if (aboutSection) {
+        const aboutTop = aboutSection.getBoundingClientRect().top;
+        setIsScrolled(aboutTop <= 100); // delay color transition until 100px into #about
+      }
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
+          const bottom = top + section.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            setIsActive(link.href);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // run once on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav 
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-2" // Set a default background and padding
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2 pt-4 ${
+ isScrolled ? 'bg-white shadow-md pt-4' : 'bg-transparent pt-6'
+      }`}
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="flex items-center space-x-2">
-          <div className='relative'>
-          <img src={GreatHireLogo} alt="" className='w-auto h-12 z-20 relative' />
-          <div className="absolute inset-0 blur-md opacity-[90%] bg-secondary-100 rounded-[100%] z-0" />
+          <div className="relative translate-x-2"> {/* Added translate-x-2 class */}
+            {isScrolled ? (
+              <>
+                <img src={GreatHireLogo} alt="Logo" className="w-auto h-12 z-20 relative" />
+                <div className="absolute inset-0 blur-xl opacity-[75%] bg-blue-200 rounded-[50%] z-0" />
+              </>
+            ) : (
+              <>
+                {/* <span className="text-white">GREAT</span>
+                <span className="text-blue-500">HIRE</span> */}
+              </>
+            )}
           </div>
         </a>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-8">
+        <div className="hidden md:flex md:items-center md:space-x-8 mx-auto">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setIsActive(link.href)}
               className={`relative text-sm font-medium transition-all duration-300
-                text-black {/* Always black now */}
-                after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-                after:h-[2px] after:bg-current after:transition-all after:duration-300
-                after:origin-center
-                ${isActive === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`}
+              ${isScrolled ? (isActive === link.href ? 'text-blue-700' : 'text-black') : 'text-white'}
+              after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
+              after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300
+              after:origin-center hover:after:w-full ${isActive === link.href ? 'after:w-full' : ''}`}
             >
               {link.name}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="btn btn-primary px-4 py-2"
-          >
+          {/* <a href="#contact" className="btn btn-primary px-4 py-2">
             Get Started
-          </a>
+          </a> */}
         </div>
 
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <X size={24} className="text-gray-800" />
-          ) : (
-            <Menu size={24} className="text-gray-800" />
-          )}
+        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}
         </button>
       </div>
 
@@ -103,13 +107,13 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <a
+            {/* <a
               href="#contact"
               className="block w-full btn btn-primary text-center"
               onClick={() => setIsOpen(false)}
             >
               Get Started
-            </a>
+            </a> */}
           </div>
         </div>
       )}
