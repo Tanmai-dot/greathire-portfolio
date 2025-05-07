@@ -59,8 +59,8 @@ const Navbar: React.FC = () => {
               </>
             ) : (
               <>
-                {/* <span className="text-white">GREAT</span>
-                <span className="text-blue-500">HIRE</span> */}
+                <span className="text-white">GREAT</span>
+                <span className="text-blue-500">HIRE</span>
               </>
             )}
           </div>
