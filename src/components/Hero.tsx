@@ -4,11 +4,10 @@ import { ChevronRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="relative flex justify-center items-center content-center min-h-[115vh] pt-20 md:pt-24 lg:pt-28 bg-gradient-to-r from-gray-50 to-gray-100">
-      <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0 bg-black scale-[1.05]"
-      style={{ filter: 'brightness(70%)' }}>
+ <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0 bg-black" style={{ filter: 'brightness(70%)' }}>
         <source src='https://static.videezy.com/system/resources/previews/000/005/102/original/Starscape_4K_Motion_Background_Loop.mp4' type="video/mp4" style={{ filter: 'none' }} />
         Your browser does not support the video tag.
       </video>
@@ -25,7 +24,7 @@ const Hero: React.FC = () => {
             className="text-center md:text-center"
           >
             {/* Hologram-like text */}
-            <h1 className="mb-5 text-white content-center justify-center align-middle font-[oswald] text-5xl md:text-6xl tracking-wide drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(100, 149, 237, 0.85), 0 0 20px rgba(100, 149, 237, 0.65), 0 0 30px rgba(100, 149, 237, 0.45)' }}>
+            <h1 className="mb-5 text-white content-center justify-center align-middle font-[oswald] text-5xl md:text-6xl tracking-wide drop-shadow-lg" style={{ textShadow: '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4)' }}>
               GREATHIRE BY BABDE PVT. LTD
             </h1>
             {/* Original smaller heading */}

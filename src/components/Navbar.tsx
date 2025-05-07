@@ -4,7 +4,6 @@ import GreatHireLogo from '../assets/GreatHireLogoHd.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isActive, setIsActive] = useState('#home');
 
   const navLinks = [
@@ -18,12 +17,6 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.querySelector('#about');
-      if (aboutSection) {
-        const aboutTop = aboutSection.getBoundingClientRect().top;
-        setIsScrolled(aboutTop <= 100); // delay color transition until 100px into #about
-      }
-
       const scrollPosition = window.scrollY + window.innerHeight / 2;
       navLinks.forEach((link) => {
         const section = document.querySelector(link.href);
@@ -39,30 +32,17 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // run once on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2 pt-4 ${
- isScrolled ? 'bg-white shadow-md pt-4' : 'bg-transparent pt-6'
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2 transition-all duration-300">
       <div className="container flex items-center justify-between">
         <a href="#home" className="flex items-center space-x-2">
-          <div className="relative translate-x-2"> {/* Added translate-x-2 class */}
-            {isScrolled ? (
-              <>
-                <img src={GreatHireLogo} alt="Logo" className="w-auto h-12 z-20 relative" />
-                <div className="absolute inset-0 blur-xl opacity-[75%] bg-blue-200 rounded-[50%] z-0" />
-              </>
-            ) : (
-              <>
-                <span className="text-white">GREAT</span>
-                <span className="text-blue-500">HIRE</span>
-              </>
-            )}
+          <div className="relative translate-x-2">
+            <img src={GreatHireLogo} alt="Logo" className="w-auto h-12 z-20 relative" />
+            <div className="absolute inset-0 blur-xl opacity-[75%] bg-blue-200 rounded-full z-0" />
           </div>
         </a>
 
@@ -74,7 +54,7 @@ const Navbar: React.FC = () => {
               href={link.href}
               onClick={() => setIsActive(link.href)}
               className={`relative text-sm font-medium transition-all duration-300
-              ${isScrolled ? (isActive === link.href ? 'text-blue-700' : 'text-black') : 'text-white'}
+              ${isActive === link.href ? 'text-blue-700' : 'text-black'}
               after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
               after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300
               after:origin-center hover:after:w-full ${isActive === link.href ? 'after:w-full' : ''}`}
@@ -82,9 +62,6 @@ const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
-          {/* <a href="#contact" className="btn btn-primary px-4 py-2">
-            Get Started
-          </a> */}
         </div>
 
         {/* Mobile menu button */}
@@ -101,19 +78,12 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block text-gray-700 hover:text-primary-600"
+                className="block text-gray-700 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            {/* <a
-              href="#contact"
-              className="block w-full btn btn-primary text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Get Started
-            </a> */}
           </div>
         </div>
       )}
