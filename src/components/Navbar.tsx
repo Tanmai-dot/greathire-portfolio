@@ -47,7 +47,6 @@ const Navbar: React.FC = () => {
         <a href="#home" className="flex items-center space-x-2">
           <div className='relative'>
           <img src={GreatHireLogo} alt="" className='w-auto h-12 z-20 relative' />
-          <div className="absolute inset-0 blur-md opacity-[90%] bg-secondary-100 rounded-[100%] z-0" />
           </div>
         </a>
 
