@@ -1,84 +1,102 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Users } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+// import { Users } from 'lucide-react';
+
+const slides = [
+  {
+    image: 'https://lh3.googleusercontent.com/p/AF1QipO90Pnpuy9XvJuvapKEdmm3lQ1K60Vlcw_YFTaT=s1360-w1360-h1020-rw',
+    heading: 'What we Are',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum possimus ea, atque voluptatum modi assumenda nisi voluptates a autem laborum tenetur numquam in cumque fugit ipsa tempora facilis deserunt! Aperiam.',
+  },
+  {
+    image: 'https://lh3.googleusercontent.com/p/AF1QipMR-CJa-HUn2WB8_8t_7z6_T5D-AmbIDWcbfN1i=s1360-w1360-h1020-rw',
+    heading: 'What we do',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum possimus ea, atque voluptatum modi assumenda nisi voluptates a autem laborum tenetur numquam in cumque fugit ipsa tempora facilis deserunt! Aperiam.',
+  },
+  {
+    image: 'https://lh3.googleusercontent.com/p/AF1QipNODwbnr56puwSNPCSqxyTsFtol3shHDaLs2zHM=s1360-w1360-h1020-rw',
+    heading: 'What makes us different',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum possimus ea, atque voluptatum modi assumenda nisi voluptates a autem laborum tenetur numquam in cumque fugit ipsa tempora facilis deserunt! Aperiam.',
+  },
+];
 
 const About: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [index, setIndex] = useState(0);
+  const [show, setShow] = useState(true);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      changeSlide((index + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [index]);
+
+  const changeSlide = (newIndex: number) => {
+    setShow(false);
+    setTimeout(() => {
+      setIndex(newIndex);
+      setShow(true);
+    }, 400); // Match with exit duration
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+  const handlePrev = () => {
+    changeSlide((index - 1 + slides.length) % slides.length);
+  };
+
+  const handleNext = () => {
+    changeSlide((index + 1) % slides.length);
   };
 
   return (
     <section id="about" className="section bg-white">
+      <h1 className="flex justify-center relative bottom-12 text-4xl font-semibold text-primary-800">About GreatHire</h1>
+      <p className="flex justify-center relative bottom-12 py-3 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nulla hic sit rem!</p>
       <div className="container">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="grid items-center gap-12 md:grid-cols-2"
-        >
-          {/* Animation variants for the image to fade and slide in */}
-          <motion.div 
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-            }}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-          >
-            <img
-              src="https://lh3.googleusercontent.com/p/AF1QipNODwbnr56puwSNPCSqxyTsFtol3shHDaLs2zHM=s1360-w1360-h1020-rw" 
-              alt="Business professionals collaborating"
-              className="object-cover w-full h-auto rounded-lg shadow-lg"
-            />
-          </motion.div>
+        <div className="grid items-center gap-12 md:grid-cols-2">
 
-          <motion.div variants={itemVariants} className="space-y-6"> {/* Corrected placement of closing tag */}
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 rounded-full">
-              <Users size={24} className="text-primary-600" />
-            </div>
-            <h2 className="text-3xl font-bold text-primary-800">Who We Are</h2>
-            <p className="text-gray-600">
-              GreatHire Business Solutions provides strategic staffing and 
-              workforce solutions tailored to meet diverse business needs. We 
-              specialize in connecting companies with top-tier talent, driving
-              efficiency, productivity, and long-term success through our expert
-              recruitment services.
-            </p>
-            <p className="text-gray-600">
-              With years of industry experience, our team understands the 
-              unique challenges businesses face when searching for the right talent.
-              We pride ourselves on our ability to identify not just skilled
-              professionals, but individuals who align with your company culture
-              and long-term objectives.
-            </p>
-            <a href="#services" className="inline-block btn btn-primary">
-              Learn More
-            </a>
-          </motion.div>
-        </motion.div>
+          {/* Text Section */}
+          <AnimatePresence mode="wait">
+            {show && (
+              <motion.div
+                key={`text-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-6"
+              >
+
+                <h2 className="text-3xl font-bold text-primary-800">{slides[index].heading}</h2>
+                <p className="text-gray-600">{slides[index].text}</p>
+                <a href="https://greathire.in/about" className="inline-block btn btn-primary">Learn More</a>
+
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Image Section */}
+          <AnimatePresence mode="wait">
+            {show && (
+              <motion.img
+                key={`image-${index}`}
+                src={slides[index].image}
+                alt="Slide"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 0.4 }}
+                className="object-cover w-full h-auto rounded-lg shadow-lg"
+              />
+            )}
+          </AnimatePresence>
+
+        </div>
       </div>
+                <div className="flex gap-4  justify-center relative top-12">
+                  <button onClick={handlePrev} className="btn btn-outline">Previous</button>
+                  <button onClick={handleNext} className="btn btn-outline">Next</button>
+                </div>
     </section>
   );
 };

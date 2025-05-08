@@ -43,6 +43,9 @@ export default {
       },
       fontFamily: {
         sans: ['Poppins', 'Roboto', 'sans-serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        tech: ['Audiowide', 'sans-serif'],
+
       },
     },
   },
