@@ -2,6 +2,37 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+
+// Logos from assets folder
+import a1townshipImg from "../assets/a1township.png";
+import accenflairImg from "../assets/accenflair.webp";
+import aiedgeImg from "../assets/aiedge.jpeg";
+import alkalineImg from "../assets/alkaline.png";
+import baklavaImg from "../assets/baklava.avif";
+import bandharyglassImg from "../assets/bandharyglass.png";
+import clevernestImg from "../assets/clevernest.jpg";
+import dadusImg from "../assets/dadus.avif";
+import dwlabsImg from "../assets/dwlabs.jpeg";
+import genericsolImg from "../assets/genericsol.jpeg";
+import hrhImg from "../assets/hrh.jpeg";
+import kotaklifeImg from "../assets/kotaklife.jpg";
+import smfibersImg from "../assets/smfibers.svg";
+import sriramfinanceImg from "../assets/sriramfinance.jpg";
+import techmahindraImg from "../assets/techmahindra.png";
+import googleImg from "../assets/Google.png";
+import teleperformanceImg from "../assets/teleperformance.png";
+import vortalsoftImg from "../assets/vortalsoft.jpg";
+import wiproImg from "../assets/Wipro.svg"; 
+import zeelmediaImg from "../assets/zeelmedia.png";      
+import ravirajImg from "../assets/Raviraj.svg";
+import eeshanyaImg from "../assets/eeshanya.png";
+import tataImg from "../assets/tata.png";
 
 interface Testimonial {
   id: number;
@@ -36,6 +67,32 @@ const Testimonials: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const clientLogos = [
+    { name: "Tata", logo: tataImg },
+    { name: "Tech Mahindra", logo: techmahindraImg },
+    { name: "Wipro", logo: wiproImg },
+    { name: "Teleperformance", logo: teleperformanceImg },
+    { name: "Google", logo: googleImg },
+    { name: "Kotak Life", logo: kotaklifeImg },
+    { name: "DWLabs", logo: dwlabsImg },
+    { name: "Voralsoft", logo: vortalsoftImg },
+    { name: "Sriram Finance", logo: sriramfinanceImg },
+    { name: "Raviraj", logo: ravirajImg },
+    { name: "A1 Township", logo: a1townshipImg },
+    { name: "SM Fibers", logo: smfibersImg },
+    { name: "Zeel Media", logo: zeelmediaImg },
+    { name: "Accenflair", logo: accenflairImg },
+    { name: "Generic Sol", logo: genericsolImg },
+    { name: "Bandhary Glass", logo: bandharyglassImg },
+    { name: "Alkaline", logo: alkalineImg },
+    { name: "AI Edge", logo: aiedgeImg },
+    { name: "Clever Nest", logo: clevernestImg },
+    { name: "Baklava", logo: baklavaImg },
+    { name: "HRH", logo: hrhImg },
+    { name: "Dadus", logo: dadusImg },
+    { name: "Eeshanya", logo: eeshanyaImg },
+  ];
 
   const testimonials: Testimonial[] = [
     {
@@ -80,7 +137,7 @@ const Testimonials: React.FC = () => {
     }, 5000);
     
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, []);
 
   return (
     <section className="section bg-gray-100">
@@ -143,15 +200,43 @@ const Testimonials: React.FC = () => {
           </div>
 
           {/* Client logos */}
-          <div className="flex flex-wrap items-center justify-center gap-8 mt-16">
-            {['XYZ Corporation', 'ABC Solutions', 'Tech Innovations', 'Global Enterprises', 'Future Systems'].map((company, index) => (
-              <div 
-                key={index}
-                className="flex items-center justify-center h-12 px-6 py-4 bg-white rounded-lg shadow-sm"
+          <div className="py-16 bg-gray-50">
+            <div className="container mx-auto px-4">
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={30}
+                slidesPerView={2}
+                loop={true}
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 3,
+                  },
+                  768: {
+                    slidesPerView: 4,
+                  },
+                  1024: {
+                    slidesPerView: 6,
+                  },
+                }}
+                className="py-4"
               >
-                <p className="font-semibold text-gray-400">{company}</p>
-              </div>
-            ))}
+                {clientLogos.map((client, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="flex items-center justify-center h-24 bg-white rounded-lg shadow-sm p-4">
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </div>
       </div>
