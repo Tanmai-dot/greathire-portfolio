@@ -3,6 +3,12 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      perspective: {
+        none: 'none',
+        800: '800px',
+        1000: '1000px',
+        1200: '1200px',
+      },
       colors: {
         primary: {
           50: '#e6eeff',
@@ -49,5 +55,25 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+    addUtilities({
+      '.transform-style-preserve-3d': {
+        'transform-style': 'preserve-3d',
+      },
+      '.backface-hidden': {
+        'backface-visibility': 'hidden',
+      },
+      '.perspective-800': {
+        perspective: '800px',
+      },
+      '.perspective-1000': {
+        perspective: '1000px',
+      },
+      '.perspective-1200': {
+        perspective: '1200px',
+      },
+    });
+  },
+],
 };
