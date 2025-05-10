@@ -1,5 +1,33 @@
 import React from "react";
 
+
+{/*import imgs from assets*/}
+
+import a1townshipImg from "../assets/a1township.png";
+import accenflairImg from "../assets/accenflair.webp";
+import aiedgeImg from "../assets/aiedge.jpeg";
+import alkalineImg from "../assets/alkaline.png";
+import baklavaImg from "../assets/baklava.avif";
+import bandharyglassImg from "../assets/bandharyglass.png";
+import clevernestImg from "../assets/clevernest.jpg";
+import dadusImg from "../assets/dadus.avif";
+import dwlabsImg from "../assets/dwlabs.jpeg";
+import genericsolImg from "../assets/genericsol.jpeg";
+import hrhImg from "../assets/hrh.jpeg";
+import kotaklifeImg from "../assets/kotaklife.jpg";
+import smfibersImg from "../assets/smfibers.svg";
+import sriramfinanceImg from "../assets/sriramfinance.jpg";
+import techmahindraImg from "../assets/techmahindra.png";
+import googleImg from "../assets/Google.png";
+import teleperformanceImg from "../assets/teleperformance.png";
+import vortalsoftImg from "../assets/vortalsoft.jpg";
+import wiproImg from "../assets/Wipro.svg";
+import zeelmediaImg from "../assets/zeelmedia.png";
+import ravirajImg from "../assets/Raviraj.svg";
+import eeshanyaImg from "../assets/eeshanya.png";
+import tataImg from "../assets/tata.png";
+
+
 const clientReviews = [
   {
     text: "The team delivered a tailor-made solution that streamlined our operations and improved our customer experience significantly. Their ability to understand our business needs and translate them into a functional application was impressive.",
@@ -39,7 +67,6 @@ const clientReviews = [
   },
 ];
 
-
 const candidateReviews = [
   {
     text: "Joining GREATHIRE gave me the opportunity to work on cutting-edge AI projects with top-tier clients. The leadership truly understands tech talent and matches us with roles that challenge and grow our skills.",
@@ -71,7 +98,7 @@ const candidateReviews = [
   },
   {
     text: "The team culture at GreatHire is collaborative and empowering. My input was valued, and I even led a module implementation for one of our internal tools. This experience gave me the confidence to pursue full-time roles after graduation.",
- author: "Sara T., Full-Stack",
+    author: "Sara T., Full-Stack",
   },
   {
     text: "The exposure to modern tools like GitHub Actions, Docker, and AWS was a game-changer. I now feel industry-ready thanks to GreatHire's hands-on approach.",
@@ -87,11 +114,35 @@ const candidateReviews = [
   },
   {
     text: "Grateful to Tanmai Ma'am and Sanket Sir for a valuable learning experience at GreatHire that boosted my AI and dev skills.",
+    author: "",
   }
-  
-  
 ];
 
+const clientLogos = [
+  
+  { logo: accenflairImg, name: "Accenflair" },
+  { logo: aiedgeImg, name: "AI Edge" },
+  { logo: alkalineImg, name: "Alkaline" },
+  { logo: baklavaImg, name: "Baklava" },
+  { logo: bandharyglassImg, name: "Bandhary Glass" },
+  { logo: clevernestImg, name: "CleverNest" },
+  { logo: dadusImg, name: "Dadus" },
+  { logo: dwlabsImg, name: "DWLabs" },
+  { logo: genericsolImg, name: "Generic Solutions" },
+  { logo: hrhImg, name: "HRH" },
+  { logo: kotaklifeImg, name: "Kotak Life" },
+  { logo: smfibersImg, name: "SM Fibers" },
+  { logo: sriramfinanceImg, name: "Sriram Finance" },
+  { logo: techmahindraImg, name: "Tech Mahindra" },
+  { logo: googleImg, name: "Google" },
+  { logo: teleperformanceImg, name: "Teleperformance" },
+  { logo: vortalsoftImg, name: "VortalSoft" },
+  { logo: wiproImg, name: "Wipro" },
+  { logo: zeelmediaImg, name: "Zeel Media" },
+  { logo: ravirajImg, name: "Raviraj" },
+  { logo: eeshanyaImg, name: "Eeshanya" },
+  { logo: tataImg, name: "Tata" },
+];
 
 const ReviewCarousel = ({
   reviews,
@@ -100,7 +151,7 @@ const ReviewCarousel = ({
   reviews: { text: string; author: string }[];
   cardHeight?: number;
 }) => {
-  return ( 
+  return (
     <div className="relative overflow-hidden py-6">
       {/* Gradient edges */}
       <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
@@ -139,6 +190,7 @@ const ReviewCarousel = ({
     </div>
   );
 };
+
 export default function Testimonial() {
   return (
     <div className="w-full bg-gray-50 px-4 py-8 overflow-hidden">
@@ -161,8 +213,32 @@ export default function Testimonial() {
         <ReviewCarousel reviews={candidateReviews} />
       </div>
 
+      {/* Client Logo Carousel */}
+      <div className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Trusted By Leading Companies</h2>
+          <div className="relative overflow-hidden">
+            <div className="flex w-max animate-scroll space-x-8">
+              {[...clientLogos, ...clientLogos].map((client, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center h-24 bg-white rounded-lg shadow-sm p-4"
+                  style={{ minWidth: '150px' }}
+                >
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Keyframes for scroll animation */}
-      <style jsx>{`
+      <style>{`
         @keyframes scroll {
           0% { 
             transform: translateX(0);
