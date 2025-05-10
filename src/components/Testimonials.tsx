@@ -30,19 +30,19 @@ import tataImg from "../assets/tata.png";
 
 const clientReviews = [
   {
-    text: "The team delivered a tailor-made solution that streamlined our operations and improved our customer experience significantly. Their ability to understand our business needs and translate them into a functional application was impressive.",
+    text: "The team delivered a tailor-made solution that streamlined our operations and improved our customer experience significantly.Their ability to understand our business needs and translate them into a functional application was impressive.",
     author: "Sarah Mitchell, Operations Director",
   },
   {
-    text: "Since partnering with them, our software uptime has consistently remained above 99.9%. Their proactive monitoring and quick response times are a game-changer.",
+    text: "Since partnering with them, our software uptime has consistently remained above 99.9%.Their proactive monitoring and quick response times are a game-changer.",
     author: "Anita Desai, Systems Lead",
   },
   {
     text: "Thanks to Great Hire’s deep understanding of AI and cloud technologies, we were able to scale our software development team quickly and cost-effectively.",
-    author: "VP of Engineering, Healthcare Software Company",
+    author: "VP of Engineering,Healthcare Software Company",
   },
   {
-    text: "Their recruitment team understands both the tech and the culture fit. Our AI R&D center wouldn’t be where it is today without their support.",
+    text: "Their recruitment team understands both the tech and the culture fit.Our AI R&D center wouldn’t be where it is today without their support.",
     author: "Ananth, Director of Innovation",
   },
   {
@@ -55,15 +55,15 @@ const clientReviews = [
   },
   {
     text: "We were looking for developers experienced in large language models and generative AI — Great Hire delivered outstanding talent in record time.",
-    author: "Head of Product",
+    author: "SHIVU-Head of Product",
   },
   {
     text: "As a fast-growing fintech, we needed full-stack developers with experience in AI-driven risk modeling. Great Hire exceeded our expectations.",
-    author: "Hiring Manager",
+    author: "KIRAN-Hiring Manager",
   },
   {
     text: "Their team understood the nuances of our tech stack, culture, and urgency. We hired six exceptional software engineers in one quarter.",
-    author: "Engineering Manager, IoT Software Company",
+    author: "Satish-Engineering Manager, IoT Software Company",
   },
 ];
 
@@ -90,15 +90,15 @@ const candidateReviews = [
   },
   {
     text: "As a software developer intern at GreatHire, I've had the opportunity to work on real-world projects from day one. The mentorship here is amazing — my skills in React and Python have grown tremendously in just a few months.",
-    author: "Priya R., Summer Intern",
+    author: "Priya R.,Summer Intern",
   },
   {
     text: "GreatHire doesn't treat you like just an intern. I was part of client meetings, sprint planning, and code reviews. I've learned more here than in any classroom.",
-    author: "David M., Backend Developer Intern",
+    author: "David M.,Backend Developer Intern",
   },
   {
     text: "The team culture at GreatHire is collaborative and empowering. My input was valued, and I even led a module implementation for one of our internal tools. This experience gave me the confidence to pursue full-time roles after graduation.",
-    author: "Sara T., Full-Stack",
+    author: "Sara T.,Full-Stack",
   },
   {
     text: "The exposure to modern tools like GitHub Actions, Docker, and AWS was a game-changer. I now feel industry-ready thanks to GreatHire's hands-on approach.",
@@ -110,11 +110,11 @@ const candidateReviews = [
   },
   {
     text: "Grateful to Tanmai Ma'am for her guidance and support throughout my internship at GreatHire. Thanks to Sanket Babde Sir for fostering an innovative learning environment. This experience has strengthened my skills in AI and software development — I'm excited to apply what I've learned as I grow in my career!",
-    author: "",
+    author: "Nazir",
   },
   {
     text: "Grateful to Tanmai Ma'am and Sanket Sir for a valuable learning experience at GreatHire that boosted my AI and dev skills.",
-    author: "",
+    author: "Sai Kiran",
   }
 ];
 
@@ -164,7 +164,7 @@ const ReviewCarousel = ({
             key={index}
             className="flex-shrink-0 bg-white rounded-lg p-4 mx-4 border border-gray-200 flex flex-col justify-between shadow-lg"
             style={{
-              width: '336px',
+              width: '400px',
               height: `${cardHeight}px`,
               position: 'relative',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
