@@ -22,7 +22,7 @@ const slides = [
 
 const About: React.FC = () => {
   const [index, setIndex] = useState(0);
-  const [show, setShow] = useState(true);
+
 
   // Auto-slide every 5 seconds
   useEffect(() => {
@@ -33,11 +33,7 @@ const About: React.FC = () => {
   }, [index]);
 
   const changeSlide = (newIndex: number) => {
-    setShow(false);
-    setTimeout(() => {
-      setIndex(newIndex);
-      setShow(true);
-    }, 400); // Match with exit duration
+    setIndex(newIndex);
   };
 
   const handlePrev = () => {
@@ -57,38 +53,38 @@ const About: React.FC = () => {
 
           {/* Text Section */}
           <AnimatePresence mode="wait">
-            {show && (
-              <motion.div
-                key={`text-${index}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="space-y-6"
-              >
+
+          <motion.div
+            key={`text-${index}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="space-y-6 min-h-[250px]" // 👈 adjust height based on content
+          >
 
                 <h2 className="text-3xl font-bold text-primary-800">{slides[index].heading}</h2>
                 <p className="text-gray-600">{slides[index].text}</p>
                 <a href="https://greathire.in/about" className="inline-block btn btn-primary">Learn More</a>
 
               </motion.div>
-            )}
+
           </AnimatePresence>
 
           {/* Image Section */}
           <AnimatePresence mode="wait">
-            {show && (
-              <motion.img
-                key={`image-${index}`}
-                src={slides[index].image}
-                alt="Slide"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 50 }}
-                transition={{ duration: 0.4 }}
-                className="object-cover w-full h-auto rounded-lg shadow-lg"
-              />
-            )}
+
+          <motion.img
+            key={`image-${index}`}
+            src={slides[index].image}
+            alt="Slide"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.4 }}
+            className="object-cover w-full h-[300px] rounded-lg shadow-lg" // 👈 fixed height
+          />
+
           </AnimatePresence>
 
         </div>
