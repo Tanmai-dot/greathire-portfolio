@@ -65,6 +65,31 @@ const clientReviews = [
     text: "Their team understood the nuances of our tech stack, culture, and urgency. We hired six exceptional software engineers in one quarter.",
     author: "Satish-Engineering Manager, IoT Software Company",
   },
+  // --------
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
 ];
 
 const candidateReviews = [
@@ -115,7 +140,32 @@ const candidateReviews = [
   {
     text: "Grateful to Tanmai Ma'am and Sanket Sir for a valuable learning experience at GreatHire that boosted my AI and dev skills.",
     author: "Sai Kiran",
-  }
+  },
+  // --------------------------------------------------------------------------------------------------------------------------------
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
+  {
+    text: "Description",
+    author: "NAME",
+  },
 ];
 
 const clientLogos = [
@@ -174,7 +224,15 @@ const ReviewCarousel = ({
             <span className="absolute top-2 left-4 text-6xl text-gray-300 opacity-75 font-serif">
               &ldquo;
             </span>
-            <p className="mt-[8%] text-sm text-gray-800 mb-2 italic">{review.text}</p>
+
+
+{/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+            <p className="mt-[8%] text-sm text-gray-800 mb-2 italic">{review.text}</p>             {/* Change the font style in this className */}
+
+{/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+
             {/* Author and Rating Container */}
             <div className="mt-auto"> {/* mt-auto pushes this container to the bottom */}
               <p className="text-xs text-blue-700 font-semibold">{review.author}</p>

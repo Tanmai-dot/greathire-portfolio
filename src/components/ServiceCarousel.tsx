@@ -66,7 +66,7 @@ const ServiceCarousel: React.FC<CarouselProps> = ({ services, onLastCardReached 
               key={index}
               className="flex-shrink-0 w-[340px] mx-4"
               animate={{ scale: isHighlighted ? 1.2 : 1 }}
-              transition={{ type: 'tween', duration: 0.6, ease: 'easeInOut' }}
+              transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
             >
               <ServiceCard
                 service={service}
