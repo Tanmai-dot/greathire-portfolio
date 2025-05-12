@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import ServiceCarousel from './ServiceCarousel';
 
+import AIMLImg from "../../assets//AIML.png";
+import WebdevelopmentImg from "../../assets//Webdevelopment.png";
+
 export interface Service {
   title: string;
   description: string;
@@ -18,14 +21,14 @@ const Services: React.FC = () => {
       title: 'Web Development',
       description: 'Building responsive, fast, and secure websites.',
       icon: 'icon-placeholder',
-      imageUrl: 'image-url-placeholder',
+      imageUrl: 'src/assets/webdevelopment.png',
       detailedDescription: 'Detailed description for web development.',
     },
     {
       title: 'AI and Machine Learning',
       description: 'Leveraging AI and ML for intelligent solutions.',
       icon: 'icon-placeholder',
-      imageUrl: 'image-url-placeholder',
+      imageUrl: 'src/assets/AIML.png',
       detailedDescription: 'Detailed description for AI and ML.',
     },
     {
