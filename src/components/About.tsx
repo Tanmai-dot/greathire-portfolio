@@ -11,7 +11,7 @@ const slides = [
   },
   {
     image: 'https://lh3.googleusercontent.com/p/AF1QipMR-CJa-HUn2WB8_8t_7z6_T5D-AmbIDWcbfN1i=s1360-w1360-h1020-rw',
-    heading: 'What we do',
+    heading: 'What We do',
     text: `At GreatHire, we go beyond recruitment to build careers and empower businesses with top-tier talent. We provide tailored hiring solutions including executive search, staffing, campus hiring, and HR consulting. Combining technology with human insight, we streamline hiring and ensure cultural fit, helping companies from startups to global enterprises build high-performing teams.
 `,
   },
