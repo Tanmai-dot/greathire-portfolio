@@ -150,7 +150,9 @@ const ServiceCarousel: React.FC<CarouselProps> = ({ services, onLastCardReached 
               x: (index - currentIndex) * 300,
               zIndex: services.length - Math.abs(index - currentIndex),
             }}
-            transition={{ duration: 0.6, ease: 'easeInOut' }}
+            transition={{ duration: 0.1, 
+              
+            }}
             className="absolute w-[320px] max-w-[90vw]"
           >
             <ServiceCard
