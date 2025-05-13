@@ -37,12 +37,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav 
-
-    className="fixed top-0 left-0 right-0 z-50 bg-transparent py-3 transition-all duration-300">
-      <div className="container flex items-center justify-between">
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ${isActive === '#home' ? 'py-1' : 'py-0'}`}>
+      <div className="container flex items-center justify-center">
         <a href="#home" className="flex items-center space-x-2">
-          {/* <div className="relative translate-x-2 ">
+          {/* <div className="relative translate-x-2 "> 
             <img src={GreatHireLogo} alt="Logo" className="w-auto h-12 z-20 relative" />
             <div className="absolute inset-0 blur-xl opacity-[45%] bg-blue-200  z-0" />
           </div> */}
@@ -50,7 +48,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop navigation */}
         <div 
-        className="hidden md:flex md:items-center md:space-x-8 mx-auto bg-white border border-blue-700 p-3 rounded-3xl ">
+        className="hidden md:flex md:items-center md:space-x-6 mx-auto bg-white border border-blue-700 px-4 py-2 rounded-full shadow-md">
           {navLinks.map((link) => (
             <a
               key={link.name}
