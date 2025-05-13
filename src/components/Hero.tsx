@@ -8,17 +8,17 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative flex justify-center items-center content-center min-h-[115vh] pt-20 md:pt-24 lg:pt-28 bg-gradient-to-r from-gray-50 to-gray-100">
+      className="relative flex justify-center items-center content-center min-h-[79.86vh] px-4 pt-20 md:pt-24 lg:pt-28 bg-gradient-to-r from-gray-50 to-gray-100">
       <video 
         autoPlay loop muted className="absolute inset-0 w-full h-full object-cover z-0 " 
         style={{
            filter: 'brightness(50%)',
            backgroundColor:'black',
-          //  opacity:'95%'
+          // opacity:'95%'
 
          }}
          >
-        <source src={BackgroundAnimation_2} type="video/mp4" style={{ filter: 'none' }} />
+        <source src={BackgroundAnimation_2} type="video/mp4" style={{ filter: 'none' }}/>
       </video>
 
       {/* Blur effect background shape */}
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
                 0 0 30px rgba(135, 206, 235, 0.4)`
             }}
             
-               >
+            >
               <span className=''>GREAT</span><span className='text-blue-800'>HIRE</span> BY BABDE PVT. LTD
             </h1>
             {/* Original smaller heading */}
