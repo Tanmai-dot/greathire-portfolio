@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ${isActive === '#home' ? 'py-1' : 'py-0'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ${isActive === '#home' ? 'py-1.5' : 'py-0'}`}>
       <div className="container flex items-center justify-center">
         <a href="#home" className="flex items-center space-x-2">
           {/* <div className="relative translate-x-2 "> 
