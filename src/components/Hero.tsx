@@ -1,48 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import WatermarkedPreview from '../assets/WatermarkedPreview.mp4';
+import BackgroundVideo from '../assets/VID-20250514-WA0008.mp4';
 
 const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative flex justify-start items-center min-h-[79.86vh] px-4 pt-20 md:pt-24 lg:pt-28 bg-gradient-to-r from-gray-50 to-gray-100"
+      className="relative flex justify-start items-center min-h-[79.86vh] px-4 pt-20 md:pt-24 lg:pt-28"
     >
-      {/* Background Video */}
       <video
         autoPlay
         loop
         muted
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{
-          filter: 'brightness(50%)',
-          backgroundColor: 'black',
+          filter: 'brightness(70%) contrast(110%)',
+          pointerEvents: 'none',
         }}
       >
-        <source src={WatermarkedPreview} type="video/mp4" />
+        <source src={BackgroundVideo} type="video/mp4" />
       </video>
 
       <div className="container relative z-10 mx-auto">
-        <div className="grid justify-start text-left grid-cols-1 gap-10 max-w-3xl">
+        <div className="grid grid-cols-1 gap-10 max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0 }}
           >
             <h1 className="mb-5 text-white font-orbitron text-5xl md:text-6xl tracking-wide uppercase">
-              GREAT<span className="text-white">HIRE</span><br/>
+              GREAT<span className="text-white">HIRE</span><br />
               <span className="normal-case text-xl md:text-2xl font-sans tracking-normal">BY BABDE PVT. LTD</span>
             </h1>
-            <style jsx="true">{`
-              h1 span { display: inline-block; }
-            `}</style>
 
             <p className="mb-8 text-lg text-white">
               Connecting Organizations with highly talented individuals across industries.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-start">
               <a href="#contact" className="btn btn-primary bg-blue-800 text-white hover:bg-blue-700">
                 Hire Talent
                 <ChevronRight size={20} className="ml-1" />
