@@ -29,9 +29,9 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0 }}
           >
-            <h1 className="mb-5 text-white font-orbitron text-5xl md:text-6xl tracking-wide uppercase">
-              GREAT<span className="text-white">HIRE</span><br />
-              <span className="normal-case text-xl md:text-2xl font-sans tracking-normal">BY BABDE PVT. LTD</span>
+            <h1 className="mb-5 text-white font-pobbins text-5xl md:text-6xl tracking-wide uppercase">
+              GREAT<span className="text-white">HIRE</span> <span className="normal-case text-xl md:text-3xl font-sans tracking-normal">BY BABDE PVT. LTD</span>
+
             </h1>
 
             <p className="mb-8 text-lg text-white">
