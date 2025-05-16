@@ -1,30 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Clock, BarChart2, Users, TrendingUp, Award } from 'lucide-react';
+
+// Import image files instead of icons
+import AgileDevelopment from '../assets/WhyUsIcons/AgileDevelopment.png';
+import AnnualMaintenancePlans from '../assets/WhyUsIcons/AnnualMaintenancePlans.png';
+import ClientNeeds from '../assets/WhyUsIcons/ClientNeeds.png';
+import CompetitiveRates from '../assets/WhyUsIcons/CompetitiveRates.png';
+import CompleteEndToEndSolutions from '../assets/WhyUsIcons/CompleteEndToEndSolutions.png';
+import DedicatedResourceElocation from '../assets/WhyUsIcons/DedicatedResourceElocation.png';
+import DilerentBusinessModels from '../assets/WhyUsIcons/DilerentBusinessModels.png';
+import GlobalKnowHow from '../assets/WhyUsIcons/GlobalKnowHow.png';
+import NDAsOwnershipTransfer from '../assets/WhyUsIcons/NDAsOwnershipTransfer.png';
+import TechExperts from '../assets/WhyUsIcons/TechExperts.png';
+import TruePartners from '../assets/WhyUsIcons/TruePartners.png';
+import ValueForYourInvestment from '../assets/WhyUsIcons/ValueForYourInvestment.png';
 
 interface ReasonProps {
-  icon: React.ElementType;
+  image: string;
   title: string;
-  description: string;
   index: number;
 }
 
-const Reason: React.FC<ReasonProps> = ({ icon: Icon, title, description, index }) => {
+const Reason: React.FC<ReasonProps> = ({ image, title, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="flex items-center gap-3 p-4 min-w-[20rem] transition-all hover:shadow-lg"
-    >
-      <div className="flex-shrink-0 p-2 text-white bg-primary-600 rounded-lg transition-all hover:bg-primary-500">
-        <Icon size={26} />
-      </div>
-      <div className="max-w-[20rem]">
-        <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
-        <p className="text-primary-100">{description}</p>
-      </div>
+      className="w-[200px] h-[200px] flex flex-col items-center justify-center border border-blue-900 border-solid bg-cyan-100 rounded-xl transition-all hover:shadow-3xl"
+      >
+      <img src={image} alt={title} className="w-[90px] ha-auto object-contain mb-3" />
+      <h3 className="text-center text-white text-sm font-semibold">{title}</h3>
     </motion.div>
   );
 };
@@ -34,37 +41,109 @@ const WhyChooseUs: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
+  
   const reasons = [
     {
-      icon: Award,
-      title: 'Proven Talent Matchmaking',
-      description: 'Our proprietary matching algorithm ensures the perfect fit for your organization.',
+      image: DedicatedResourceElocation,
+      title: (
+        <p className='text-blue-900 text-lg'>
+        Dedicated Resource Allocation
+        </p>
+      ),
     },
     {
-      icon: Users,
-      title: 'Industry Expertise',
-      description: 'Specialized recruiters with deep knowledge in various industry sectors.',
+      image: DilerentBusinessModels,
+      title: (
+        <p  className='text-blue-900 text-lg'>
+         Dilerent Business Models
+        </p>
+      ),
     },
     {
-      icon: Clock,
-      title: 'Fast Time-to-Hire',
-      description: 'Reduce your hiring cycle by up to 40% with our streamlined process.',
+      image: CompetitiveRates,
+      title:(
+        <p className='text-blue-900 text-lg'>
+          Competitive Rates<br/> for Best Services
+        </p>
+      ),
     },
     {
-      icon: TrendingUp,
-      title: 'High Retention Rate',
-      description: '92% of our placements stay with companies for more than two years.',
+      image: NDAsOwnershipTransfer,
+      title:(
+        <p className='text-blue-900 text-lg'>
+          NDA & Ownership Transfer
+        </p>
+      ),
     },
     {
-      icon: BarChart2,
-      title: 'Scalable Solutions',
-      description: 'Flexible staffing options for businesses of all sizes, from startups to enterprises.',
+      image: CompleteEndToEndSolutions,
+      title:(
+        <p className='text-pink-700 text-lg'>
+        Complete End to <br />End Solutions
+        </p>
+      ) 
     },
+    {
+      image: AnnualMaintenancePlans,
+      title:(
+        <p className='text-pink-700 text-lg'>
+        Annual Pans for<br /> Maintenance
+        </p>
+      ) 
+    },
+    {
+      image: TechExperts,
+      title:(
+        <p className='text-pink-700 text-lg'>
+        Tech Experts on Board
+        </p>
+      ) 
+    },
+    {
+      image: AgileDevelopment,
+      title:(
+        <p className='text-pink-700 text-lg'>
+        Agile Development <br />& Fast Deployment
+        </p>
+      ) 
+    },
+    {
+      image: ValueForYourInvestment,
+      title:(
+        <p className='text-green-600 text-lg'>
+        Value for Your Investment
+        </p>
+      )
+    },
+    {
+      image: ClientNeeds,
+      title:(
+        <p className='text-green-600 text-lg'>
+        Respect Client <br /> Needs & Culture
+        </p>
+      )
+    },
+    {
+      image: GlobalKnowHow,
+      title:(
+        <p className='text-green-600 text-lg'>
+        Global Know How
+        </p>
+      ) 
+    },
+    {
+      image: TruePartners,
+      title:(
+        <p className='text-green-600 text-lg'>
+        True Partners
+        </p>
+      ) 
+    },
+    
   ];
 
   return (
-    <section id="whyus" className="section bg-primary-700 relative">
+    <section id="whyus" className="section bg-blue-600 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
@@ -85,13 +164,13 @@ const WhyChooseUs: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
+
           {reasons.map((reason, index) => (
             <Reason
               key={index}
-              icon={reason.icon}
+              image={reason.image}
               title={reason.title}
-              description={reason.description}
               index={index}
             />
           ))}

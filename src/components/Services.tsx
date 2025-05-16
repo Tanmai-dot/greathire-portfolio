@@ -74,7 +74,7 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="section bg-gray-50">
+    <section id="services" className="section bg-blue-300">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto mb-16 text-center">
           <h2 className="mb-4 text-primary-800">Our Expertise</h2>
