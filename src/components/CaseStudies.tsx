@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ChevronRight, Building2, Bot, Banknote, Store, Cpu, Stethoscope } from 'lucide-react';
-import Tilt from 'react-parallax-tilt';
+import { ChevronRight, BriefcaseBusiness, BrainCircuit, HeartPulse, TrendingUp, ShoppingBag, CircuitBoard } from 'lucide-react';
 
 interface CaseStudy {
   id: number;
@@ -10,44 +8,62 @@ interface CaseStudy {
   description: string;
   tags: string[];
   icon: React.ReactNode;
+  detailedDescription: string;
 }
 
-const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, index }) => {
+const CaseStudyCard: React.FC<{
+  study: CaseStudy;
+  index: number;
+}> = ({ study, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleCardClick = () => {
+    setIsExpanded((prev) => !prev); // Toggle the expanded state on click
+  };
+
   return (
-    <Tilt glareEnable={true} glareMaxOpacity={0.1} scale={1.02} transitionSpeed={1000}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className="bg-white/30 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl p-6 text-center hover:shadow-2xl transition-shadow"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className="bg-primary-600 border border-blue-600 shadow-xl rounded-2xl p-6 text-center hover:shadow-2xl transition-shadow text-white"  // Slightly darken blue content
+    >
+      <div className="flex justify-center mb-4">
+        <div className="bg-gray-100 p-4 rounded-full transition-transform duration-300 hover:rotate-6">
+          {study.icon}
+        </div>
+      </div>
+      <h3 className="text-lg font-semibold text-navy-900 mb-2" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)' }}>{study.title}</h3>
+      <p className="text-navy-900 mb-4 text-sm" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)' }}>{study.description}</p>
+      {isExpanded && (
+        <div className="text-navy-900 text-sm mb-4" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)' }}>
+          <p style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)' }}>{study.detailedDescription}</p>
+        </div>
+      )}
+      <div className="flex flex-wrap justify-center gap-2 mb-4" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)' }}>
+        {study.tags.map((tag, idx) => (
+          <span
+            key={idx}
+            className={`${getTagColor(tag)} text-xs font-medium px-3 py-1 rounded-full`}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+      <a
+        href="#"
+        className="inline-flex items-center text-blue-200 hover:underline text-sm font-medium"
+        onClick={(e) => {
+          e.preventDefault();
+          handleCardClick(); // Toggle the expanded state on click
+        }}
       >
-        <div className="flex justify-center mb-4">
-          <div className="bg-gray-100 p-4 rounded-full transition-transform duration-300 hover:rotate-6">
-            {study.icon}
-          </div>
-        </div>
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">{study.title}</h3>
-        <p className="text-gray-600 mb-4 text-sm">{study.description}</p>
-        <div className="flex flex-wrap justify-center gap-2 mb-4">
-          {study.tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className={`${getTagColor(tag)} text-xs font-medium px-3 py-1 rounded-full`}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <a
-          href="#"
-          className="inline-flex items-center text-blue-600 hover:underline text-sm font-medium"
-        >
-          View Case Study <ChevronRight size={16} className="ml-1" />
-        </a>
-      </motion.div>
-    </Tilt>
+        {isExpanded ? 'Hide Case Study' : 'View Case Study'}
+        <ChevronRight size={16} className="ml-1" />
+      </a>
+    </motion.div>
   );
 };
 
@@ -67,63 +83,69 @@ const getTagColor = (tag: string) => {
 };
 
 const CaseStudies: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const caseStudies: CaseStudy[] = [
     {
       id: 1,
       title: 'Fortune 500 Leadership Team',
       description: 'Built complete C-suite for a multinational corporation across 5 countries.',
+      detailedDescription:
+        'We helped a global corporation build their leadership team from the ground up, expanding across 5 countries. The process included executive search, interviews, and leadership assessment.',
       tags: ['Executive Search', 'Global Hiring', 'Leadership'],
-      icon: <Building2 size={28} />,
+      icon: <BriefcaseBusiness size={28} className="text-blue-600" />,
     },
     {
       id: 2,
       title: 'AI Startup Team',
       description: 'Recruited complete technical team for Series A funded AI startup.',
+      detailedDescription:
+        'This AI startup required a specialized team for their product development. We successfully recruited data scientists, machine learning engineers, and other technical staff.',
       tags: ['Tech Recruitment', 'AI/ML', 'Startup'],
-      icon: <Bot size={28} />,
+      icon: <BrainCircuit size={28} className="text-purple-600" />,
     },
     {
       id: 3,
       title: 'Healthcare Expansion',
       description: 'Staffed 200+ positions for hospital network expansion in 6 months.',
+      detailedDescription:
+        'In collaboration with a large hospital network, we filled over 200 positions for new facilities and expansion. This rapid staffing process was crucial to meeting the tight timelines.',
       tags: ['Bulk Hiring', 'Healthcare', 'Rapid Scaling'],
-      icon: <Stethoscope size={28} />,
+      icon: <HeartPulse size={28} className="text-red-600" />,
     },
     {
       id: 4,
       title: 'Financial Services Transformation',
       description: 'Digital transformation hiring for legacy financial institution.',
+      detailedDescription:
+        'We helped a traditional financial institution transition into the digital age by hiring professionals skilled in technology, digital strategies, and data analysis.',
       tags: ['Tech Recruitment', 'Digital Transformation', 'Finance'],
-      icon: <Banknote size={28} />,
+      icon: <TrendingUp size={28} className="text-green-600" />,
     },
     {
       id: 5,
       title: 'Retail Expansion',
       description: 'National hiring campaign for retail chain opening 50 new locations.',
+      detailedDescription:
+        'For this national retailer, we executed a recruitment campaign for 50 new store locations, covering a range of positions from management to staff.',
       tags: ['Bulk Hiring', 'Retail', 'Multi-location'],
-      icon: <Store size={28} />,
+      icon: <ShoppingBag size={28} className="text-pink-600" />,
     },
     {
       id: 6,
       title: 'Semiconductor Talent Pipeline',
       description: 'Established ongoing talent pipeline for semiconductor manufacturer.',
+      detailedDescription:
+        'We worked with a leading semiconductor manufacturer to build a continuous talent pipeline for both engineering and production roles, ensuring they meet their future needs.',
       tags: ['Tech Recruitment', 'Engineering', 'Talent Pipeline'],
-      icon: <Cpu size={28} />,
+      icon: <CircuitBoard size={28} className="text-blue-600" />,
     },
   ];
 
   return (
-    <section id="case-studies" className="section bg-white">
+    <section id="case-studies" className="section bg-gradient-to-r from-white to-blue-200">
       <div className="container">
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto mb-16 text-center"
         >
