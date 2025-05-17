@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1.0 }}
           >
             <h1 className="mb-5 text-white font-pobbins text-5xl md:text-6xl tracking-wide uppercase">
-              GREAT<span className="text-white">HIRE</span> <span className="normal-case text-xl md:text-3xl font-sans tracking-normal">BY BABDE PVT. LTD</span>
+              GREAT<span className="text-white">HIRE</span> <span className="normal-case text-xl md:text-3xl font-sans tracking-normal">BY BABDE PVT. LTD Hi</span>
 
             </h1>
 
