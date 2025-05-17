@@ -28,7 +28,7 @@ const CaseStudyCard: React.FC<{
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      className="bg-primary-600 border border-blue-600 shadow-xl rounded-2xl p-6 text-center hover:shadow-2xl transition-shadow text-white"  // Slightly darken blue content
+      className="bg-primary-600 border border-blue-600 shadow-xl rounded-2xl p-6 text-center hover:shadow-2xl transition-shadow text-white"
     >
       <div className="flex justify-center mb-4">
         <div className="bg-gray-100 p-4 rounded-full transition-transform duration-300 hover:rotate-6">
@@ -57,7 +57,7 @@ const CaseStudyCard: React.FC<{
         className="inline-flex items-center text-blue-200 hover:underline text-sm font-medium"
         onClick={(e) => {
           e.preventDefault();
-          handleCardClick(); // Toggle the expanded state on click
+          handleCardClick();
         }}
       >
         {isExpanded ? 'Hide Case Study' : 'View Case Study'}
@@ -160,13 +160,6 @@ const CaseStudies: React.FC = () => {
           {caseStudies.map((study, index) => (
             <CaseStudyCard key={study.id} study={study} index={index} />
           ))}
-        </div>
-
-        <div className="flex justify-center mt-12">
-          <a href="#contact" className="inline-flex items-center btn btn-primary">
-            Read More Success Stories
-            <ChevronRight size={20} className="ml-1" />
-          </a>
         </div>
       </div>
     </section>
