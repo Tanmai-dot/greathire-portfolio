@@ -87,7 +87,7 @@ const WhyChooseUs: React.FC = () => {
       image: AnnualMaintenancePlans,
       title:(
         <p className='text-pink-700 text-lg'>
-        Annual Pans for<br /> Maintenance
+        Annual Plans for<br /> Maintenance
         </p>
       ) 
     },
