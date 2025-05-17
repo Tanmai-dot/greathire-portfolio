@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import BackgroundVideo from '../assets/VID-20250514-WA0008.mp4';
+// import BackgroundVideo from '../assets/VID-20250514-WA0008.mp4';
+import Animation_1 from '../assets/Animation_1.mp4'
 
 const Hero: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Hero: React.FC = () => {
           pointerEvents: 'none',
         }}
       >
-        <source src={BackgroundVideo} type="video/mp4" />
+        <source src={Animation_1} type="video/mp4" />
       </video>
 
       <div className="container relative z-10 mx-auto">
