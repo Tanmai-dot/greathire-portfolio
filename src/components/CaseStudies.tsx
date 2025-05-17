@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, BriefcaseBusiness, BrainCircuit, HeartPulse, TrendingUp, ShoppingBag, CircuitBoard } from 'lucide-react';
+import { ChevronRight, Briefcase, BrainCircuit, HeartPulse, TrendingUp, ShoppingBag, CircuitBoard } from 'lucide-react';
 
 interface CaseStudy {
   id: number;
@@ -91,7 +91,7 @@ const CaseStudies: React.FC = () => {
       detailedDescription:
         'We helped a global corporation build their leadership team from the ground up, expanding across 5 countries. The process included executive search, interviews, and leadership assessment.',
       tags: ['Executive Search', 'Global Hiring', 'Leadership'],
-      icon: <BriefcaseBusiness size={28} className="text-blue-600" />,
+      icon: <Briefcase size={28} className="text-blue-600" />,
     },
     {
       id: 2,
