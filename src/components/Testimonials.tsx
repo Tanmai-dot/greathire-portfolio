@@ -67,28 +67,29 @@ const clientReviews = [
   },
   // --------
   {
-    text: "Description",
-    author: "NAME",
+    text: "The digital ad campaigns and local SEO optimizations helped us reach more patients in our area. Appointments doubled in just six weeks. We were amazed by the professionalism and data-driven approach",
+    author: "Dr. Robert Patel, Director",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "Partnering with GreatHire for our digital marketing talent was a game-changer. The professionals they placed helped us double our ROI on paid ads within three months. They truly understand the digital landscape and our business goals",
+    author: "Sarah T., Marketing Director",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "The digital marketing team we’ve built through GreatHire has completely transformed our online visibility. SEO, paid campaigns,content—every area has improved with their talent onboard.",
+    author: "Laura J.,CMO ",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "GreatHire helped us find a digital ad specialist who restructured our entire PPC campaign. Within 60 days, we saw a 45% decrease in cost-per-lead. They made hiring efficient and stress-free.",
+    author: "Elena V.,VP of Growth",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "GreatHire quickly connected us with a skilled digital strategist who reshaped our online campaigns.We saw better engagement within the first month Our website traffic doubled in 90 days thanks to the SEO specialist we hired through GreatHire.",
+    author: "Nitish.,CEO",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "The content strategist GreatHire connected us with brought a fresh voice to our brand.Blog traffic and newsletter engagement have soared since she joined.Their recruitment process was seamless and fast We launched our eCommerce site with a full marketing team from GreatHire.",
+
+    author:"Raj.,P-Hiring Manager",
   },
 ];
 
@@ -138,33 +139,33 @@ const candidateReviews = [
     author: "Nazir",
   },
   {
-    text: "Grateful to Tanmai Ma'am and Sanket Sir for a valuable learning experience at GreatHire that boosted my AI and dev skills.",
-    author: "Sai Kiran",
+    text: "GreatHire didn’t just give me an internship—they gave me a career path.The real-world exposure, resume-building support, and mock interviews made all the difference.I’m now working at a top-tier firm with a great salary, all thanks to the wonderful team at GreatHire!",
+    author: "Sai Kiran.,-Marketing Analyst",
   },
   // --------------------------------------------------------------------------------------------------------------------------------
   {
-    text: "Description",
-    author: "NAME",
+    text: "Joining GreatHire as a digital marketing intern was a turning point in my career. The hands-on experience with real client projects and the constant support from senior marketers helped me grow rapidly.I gained skills in SEO, content creation, Google Ads,and analytics—all within just a few months!",
+    author: "Ritika Sharma.,Digital Marketing Intren",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "Starting as a digital marketing intern at GreatHire was the turning point in my career.The hands-on experience,guidance,and real-world exposure helped me secure a full-time role with an impressive package.Thank you,GreatHire team,for believing in me!",
+    author: "Ravi K.,Digital Marketing Executive",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "I joined GreatHire as a digital marketing intern with no prior experience.The mentorship and practical training I received here gave me the confidence and skills to land a job offer immediately after the internship.Forever grateful to the GreatHire team!",
+    author: "Sneha M.,SEO Analyst",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "From intern to full-time professional—GreatHire made it happen!Their digital marketing training is top-notch, and the placement support was exceptional.Thank you for setting the foundation for my career.",
+    author: "Priya.S.,-Digital Marketing",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "GreatHire’s internship program not only taught me valuable digital marketing skills but also helped me build a strong portfolio.I’m now working in a top agency with a competitive salary—none of this would’ve been possible without GreatHire’s support",
+    author: "Aman R.,Content Strategist.",
   },
   {
-    text: "Description",
-    author: "NAME",
+    text: "Starting my career as an intern at GreatHire was the best decision I made.The team mentored me throughout the internship,helping me build both technical and soft skills.Thanks to their guidance and placement support,I secured a full-time role with an excellent package. Forever grateful to the GreatHire team!",
+    author: "Aarav M.",
   },
 ];
 
