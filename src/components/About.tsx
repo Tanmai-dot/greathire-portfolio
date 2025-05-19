@@ -50,7 +50,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="section bg-white">
       <div className="max-w-4xl mx-auto text-center relative bottom-12">
-        <h1 className="text-4xl font-semibold text-primary-800">About The GreatHire Journey
+        <h1 className="text-4xl font-semibold text-primary-800">About GreatHire 
 
 </h1>
         <p className="py-3 text-gray-700">GreatHire Business Solutions provides strategic staffing and workforce solutions tailored to meet diverse business needs. We specialize in connecting companies with top-tier talent, driving efficiency, productivity, and long-term success through our expert recruitment services.</p>
