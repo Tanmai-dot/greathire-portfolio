@@ -90,13 +90,13 @@ const Services: React.FC = () => {
               key={id}
               className="min-w-[250px] bg-white p-4 rounded-lg shadow hover:shadow-lg flex-shrink-0"
             >
-              <div className="h-32  mb-2">
-                <DotLottieReact src={animationUrl} loop autoplay />
-              </div>
               <h3 className="text-lg font-semibold text-center">{title}</h3>
+              <div className="h-32  mb-2">
               <p className="text-sm text-gray-600 text-center mt-1">
                 {description}
               </p>
+                <DotLottieReact src={animationUrl} loop autoplay />
+              </div>
             </div>
           ))}
         </div>
